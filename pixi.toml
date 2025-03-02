@@ -12,6 +12,35 @@ reproduce144 = "python -c 'import jax;key = jax.random.PRNGKey(0);print(\"jax.ra
 # Reproduce
 reproduce168 = "python -c 'import jax;x = jax.numpy.asarray([1.0,2.0,3.0]);print(x*x);'"
 
+[feature.jax0434.dependencies]
+jax = "==0.4.34"
+jaxlib = "==0.4.34"
 
-[dependencies]
+[feature.jax0435.dependencies]
+jax = "==0.4.35"
+jaxlib = "==0.4.35"
+
+[feature.jax0436.dependencies]
+jax = "==0.4.36"
+jaxlib = "==0.4.36"
+
+[feature.jax0438.dependencies]
+jax = "==0.4.38"
+jaxlib = "==0.4.38"
+
+[feature.jax050.dependencies]
+jax = "==0.5.0"
+jaxlib = "==0.5.0"
+
+[feature.jaxlatest.dependencies]
 jax = "*"
+
+
+[environments]
+default = ["jaxlatest"]
+jaxlatest = ["jaxlatest"]
+jax050 = ["jax050"]
+jax0438 = ["jax0438"]
+jax0436 = ["jax0436"]
+jax0435 = ["jax0435"]
+jax0434 = ["jax0434"]

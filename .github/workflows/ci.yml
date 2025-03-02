@@ -13,7 +13,7 @@ on:
 
 jobs:
   build-with-pixi:
-    name: '[pixi:${{ matrix.os }}@task:${{ matrix.pixi_task }}]'
+    name: '[pixi:${{ matrix.os }}@task:${{ matrix.pixi_task }}@env:${{ matrix.pixi_env }}]'
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -21,6 +21,7 @@ jobs:
         build_type: [Release]
         os: [ubuntu-24.04, ubuntu-24.04-arm]
         pixi_task: [reproduce144, reproduce168]
+        pixi_env: [jax0434, jax0435, jax0436, jax0438, jax050, jaxlatest]
 
     steps:
     - uses: actions/checkout@v4
@@ -41,4 +42,4 @@ jobs:
     - name: Build
       shell: bash
       run: |
-        pixi run ${{ matrix.pixi_task }}
+        pixi run -e ${{ matrix.pixi_env }}  ${{ matrix.pixi_task }}
