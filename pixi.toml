@@ -1,0 +1,14 @@
+[project]
+authors = ["Silvio <silvio.traversaro@iit.it>"]
+channels = ["conda-forge"]
+description = "Add a short description here"
+name = "jax-conda-issues-reproducers"
+platforms = ["linux-64", "linux-aarch64"]
+version = "0.1.0"
+
+[tasks]
+# Reproduce https://github.com/conda-forge/jax-feedstock/issues/144
+reproduce144 = "python -c 'import jax;key = jax.random.PRNGKey(0);print(\"jax.random.PRNGKey assigned correctly\")'"
+
+[dependencies]
+jax = "*"
